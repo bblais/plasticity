@@ -1,0 +1,21 @@
+removing references to fonts
+removed the autoinstall on the Image type (memory leak?)
+added aboutbox
+added colourdialog, and colordialog
+added multichoicedialog
+added singlechoicedialog
+
+code to look at:
+canvas.py
+
+
+demos to do:
+
+artprovider
+bitmap
+bitmapbutton
+checkbox
+checklistbox
+combobox
+customdialog
+listbox

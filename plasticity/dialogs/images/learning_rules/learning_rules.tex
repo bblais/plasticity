@@ -1,0 +1,28 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\input stdheader.tex
+
+\begin{document}
+
+
+\beqn
+dw_i/dt = \eta y (y-\theta_M) x_i
+\eeqn
+
+\beqn
+dw_i/dt = \eta y (y-\theta_M) x_i/\theta_M
+\eeqn
+
+\beqn
+dw_i/dt = \eta y x_i
+\eeqn
+
+\end{document}  

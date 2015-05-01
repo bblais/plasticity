@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\input stdheader.tex
+\topmargin=-1in
+
+\title{Quick Guide to Plasticity}
+\author{Brian Blais}
+\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\section{Menus}
+
+\subsection{File}
+
+\bi
+\i Save/Load State - save/load an entire simulation
+\i Save/Load Params - save/load just the params that describe how to run a simulation, not the results of the simulation 
+\i Run/Pause - Runs (continues)/Pauses a simulation
+\i Restart - resets the initial weights to random, to begin another simulation
+\ei
+
+\subsection{Edit}
+
+\bi
+\i Set Simulation Params.  One simulation consists of a series of epochs, each of which is a certain number of iterations.  This the total number of iterations is (epoch\_number)$\times$(iter\_per\_epoch).  The data is saved each epoch, not each iteration, to save on memory.
+\cc{\psx{set_sim_params}{3in}}
+
+\i Set Input Params - The single neuron gets input from 2 channels by default.  The input consists of patches from natural images.  You can choose to change the image file, or not have any input at all (all zeros).  You can also choose the value of noise, on the right.  By default there is none, and both channels see exactly the same natural image patches.  For deprivation, set the Pattern to None, and the Noise to Uniform or Gaussian, and set the Standard Deviation (std) to something greater than zero.  For a template, choose the Standard Experiments menu in the upper left.
+\cc{\psx{set_input_params}{6in}}
+\i Set Output Params 
+\cc{\psx{set_output_params}{3in}}
+\i Set Weight Params
+
+You can set the minimum and maximum initial weights, and the learning rule.  Some learning rules require stabilization, such as min/max on the weights or normalization.  
+
+\cc{\psx{set_weight_params}{3in}}  
+
+
+\ei
+
+
+
+\section{Main Output Screen}
+
+\cc{\psx{nr}{6.5in}}
+
+%\section{}
+%\subsection{}
+
+
+
+\end{document}  
