@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-from .utils import *
+from utils import *
 import os
 import sys
-from . import zpickle
+import zpickle
 import time
 import numpy
 from copy import deepcopy
@@ -13,7 +13,7 @@ import pylab
 debugit=pdb.set_trace
 
 from train import *
-from .test_stim import *
+from test_stim import *
 
 
 
@@ -52,7 +52,7 @@ def sec2str(tm):
 def status(txt,parent=None):
 
     if not parent:
-        print(txt)
+        print txt
         sys.stdout.flush()
     else:
         parent.SetStatusText(txt)
@@ -88,7 +88,7 @@ def subplot(*args):
         
         
     else:
-        raise ValueError("invalid number of arguments")
+        raise ValueError,"invalid number of arguments"
     
     
 def Plot(sim):
@@ -113,9 +113,9 @@ def Plot(sim):
             module=__import__(sim['params']['display_module'],fromlist=['UserPlot'])
         except ImportError:
             sim['params']['display']=False
-            print("Error","Error in Import: %s.  Turning display off.  %s" % (
+            print "Error","Error in Import: %s.  Turning display off.  %s" % (
                                 sim['params']['display_module'],
-                                sys.exc_info()))
+                                sys.exc_info())
             return
         
         try:
@@ -124,7 +124,7 @@ def Plot(sim):
             return
         except ValueError:
             sim['params']['display']=False
-            print("Error in display.  Turning display off")
+            print "Error in display.  Turning display off"
             return
     
     try:
@@ -189,7 +189,7 @@ def Plot(sim):
 
     except ValueError:
         sim['params']['display']=False
-        print("Error in display.  Turning display off")
+        print "Error in display.  Turning display off"
         return
             
 def fix_images_directories(params,parent):
@@ -204,7 +204,7 @@ def fix_images_directories(params,parent):
                     p['filename']=filename
                 else:
                     if parent is None:
-                        raise ValueError("File %s doesn't exist." % filename)
+                        raise ValueError,"File %s doesn't exist." % filename
                     else:
                         import warnings
                         warnings.warn("File %s doesn't exist.  Replacing with None" % filename)
@@ -304,7 +304,7 @@ def plot_input_distribution(sim_or_params,xlabels=None,bins=50,use_log=False):
         
 def run_sim_client(params=None,url='http://localhost:4242'):
     
-    from xmlrpc.client import ServerProxy
+    from xmlrpclib import ServerProxy
     import pickle
     
     server=ServerProxy('http://localhost:4242')
@@ -327,7 +327,7 @@ def run_sim_client(params=None,url='http://localhost:4242'):
     
     sim=pickle.loads(sim_bytes)
     
-    print('Save: %s' % params['save_sim_file'])
+    print 'Save: %s' % params['save_sim_file']
     zpickle.save(sim,params['save_sim_file'])
     
     return sim
@@ -377,7 +377,7 @@ def run_sim(params=None,parent=None):
     
     if not params:
         params=default_params()
-    elif isinstance(params,str):
+    elif isinstance(params,basestring):
         fname=params
         d=zpickle.load(fname)
     

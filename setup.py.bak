@@ -1,8 +1,8 @@
 # this is from https://github.com/cython/cython/wiki/PackageHierarchy
 
+from __future__ import with_statement
 
-
-import sys, os, stat, subprocess
+import sys, os, stat, commands
 from distutils.core import setup
 from Cython.Distutils import build_ext
 from distutils.extension import Extension
@@ -11,8 +11,8 @@ from distutils.extension import Extension
 try:
     from Cython.Distutils import build_ext
 except:
-    print("You don't seem to have Cython installed. Please get a")
-    print("copy from www.cython.org and install it")
+    print "You don't seem to have Cython installed. Please get a"
+    print "copy from www.cython.org and install it"
     sys.exit(1)
 
 import numpy
@@ -25,7 +25,7 @@ def get_version(package):
         for line in fid:
             if line.startswith('version='):
                 version_line=line
-    print(version_line)
+    print version_line
     exec(version_line,d)
     return d['version']
 
@@ -50,7 +50,7 @@ def cleanc(dir):
             cpath=base+'.c'
             if os.path.isfile(cpath):
                 os.remove(cpath)
-                print("~~",cpath)
+                print "~~",cpath
         elif os.path.isdir(path):
             cleanc(path)
 
@@ -68,11 +68,11 @@ def makeExtension(extName):
 
 # get the list of extensions
 extNames = scandir("plasticity")
-print(extNames)
+print extNames
 cleanc("plasticity")
 
 # and build up the set of Extension objects
-print(extNames)
+print extNames
 
 extensions = [makeExtension(name) for name in extNames]
 # finally, we can pass all this to distutils

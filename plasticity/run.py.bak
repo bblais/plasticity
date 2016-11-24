@@ -11,12 +11,12 @@ from wx import SplashScreen, SPLASH_CENTRE_ON_SCREEN, SPLASH_TIMEOUT
 import os
 import sys
 import warnings
-from . import zpickle
+import zpickle
 
-from .utils import *
-from .dialogs.waxy import *
-from .dialogs import *
-from .run_sim import *
+from utils import *
+from dialogs.waxy import *
+from dialogs import *
+from run_sim import *
 import threading
 
 import pylab
@@ -57,7 +57,7 @@ def subplot(*args):
         
         
     else:
-        raise ValueError("invalid number of arguments")
+        raise ValueError,"invalid number of arguments"
     
 
 class MainFrame(Frame):

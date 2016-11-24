@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
-from .dialogs.waxy import *
+from dialogs.waxy import *
 #from waxy import *
 
 import os,sys
 import glob
-from .utils import *
-from . import zpickle
+from utils import *
+import zpickle
 
 
 import matplotlib

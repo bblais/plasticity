@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-from .dialogs.waxy import *
+from dialogs.waxy import *
 #from waxy import *
 
 import os,sys
 import glob
-from .run_sim import Plot
+from run_sim import Plot
 
     
 class MainFrame(Frame):

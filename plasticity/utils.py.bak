@@ -1,19 +1,19 @@
 import math
 import copy
 import numpy
-from . import zpickle
+import zpickle
 from numpy import exp,array
-from .Struct import Struct
+from Struct import Struct
 
 def hdf5_load_images(fname):
     import h5py,os
     
     if not os.path.exists(fname):
-        raise ValueError("File does not exist: %s" % fname)
+        raise ValueError,"File does not exist: %s" % fname
     f=h5py.File(fname,'r')
     var={}
     var['im_scale_shift']=list(f.attrs['im_scale_shift'])
-    N=len(list(f.keys()))
+    N=len(f.keys())
     var['im']=[]
     for i in range(N):
         var['im'].append(array(f['image%d' % i]))
@@ -409,7 +409,7 @@ def get_weight_stabilization(type=0,bottom=-1,top=1,decay=1):
 def default_params():
 
     params={}
-    from . import version
+    import version
     
     params['version']=version.version
     params['config']={}

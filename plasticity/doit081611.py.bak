@@ -1,4 +1,4 @@
-from .utils import *
+from utils import *
 
 def get_weight_modification_orig(type=1):
 
@@ -35,12 +35,12 @@ p1=get_weight_modification()
 p2=get_weight_modification_orig()
 
 for i,t in enumerate(p2['types']):
-    print(t,'==',p1['rules'][i])
+    print t,'==',p1['rules'][i]
     
 for i,t in enumerate(p2['types']):
-    print(t,'==',i)
+    print t,'==',i
     
 
     
 params=default_params()
-print("num moments:",get_num_moments(params))
+print "num moments:",get_num_moments(params)

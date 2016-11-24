@@ -8,10 +8,10 @@ import matplotlib
 matplotlib.use('WX')
 
 from numpy import linspace
-from .utils import *
-from .dialogs.waxy import *
-from .dialogs import *
-from .run_sim import *
+from utils import *
+from dialogs.waxy import *
+from dialogs import *
+from run_sim import *
 
 import pylab
 gray=pylab.cm.gray

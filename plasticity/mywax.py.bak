@@ -209,7 +209,7 @@ class MainFrame(Frame):
         
         
         res=Input_Integer('this is the title','some text',5)
-        print(res)
+        print res
         self.Close()
     
 if __name__ == '__main__':
